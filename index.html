@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Region Warning and Alerts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #dc3545;
+      --secondary: #3a3d42;
+      --background: #f4f6f8;
+      --light: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--background);
+      color: var(--secondary);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to right, #dc3545, #ff6b6b);
+      color: var(--light);
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .hero-icon {
+      width: 80px;
+      height: 80px;
+      margin: 1rem auto;
+      fill: white;
+      opacity: 0.9;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    section {
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      padding: 2rem 1rem;
+    }
+
+    a.button {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #b02a37;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature {
+      background: #fefefe;
+      border-radius: 10px;
+      padding: 1rem;
+      border-left: 5px solid var(--primary);
+    }
+
+    .feature h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature svg {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-right: 0.4rem;
+      fill: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <svg class="hero-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 2L3 14H12L11 22L21 10H13L13 2Z" fill="white"/>
+    </svg>
+    <h1>Region Warning and Alerts</h1>
+    <p>Real-time updates, geospatial awareness, no complex setup</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>What This Site Offers</h2>
+      <p>This tool visualises emergency alerts, warnings, and region-specific information using geospatial data and modern web technologies. It’s portable, customisable, and built with real-time decision-making in mind.</p>
+      <div class="feature-list">
+        <div class="feature">
+          <h3>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M1 21h22L12 2 1 21zm13-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+            </svg>
+            Real-Time Alerts
+          </h3>
+          <p>Instantly surface critical weather and civil defence warnings for specific regions.</p>
+        </div>
+        <div class="feature">
+          <h3>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+            </svg>
+            Geospatial Mapping
+          </h3>
+          <p>Alerts are filtered using live polygon checks — not just names or guesses.</p>
+        </div>
+        <div class="feature">
+          <h3>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="currentColor" d="M7 3v6h10V3h2v6h2v2h-2v4c0 2.21-1.79 4-4 4h-1v4h-2v-4h-1c-2.21 0-4-1.79-4-4v-4H3v-2h2V3h2z"/>
+            </svg>
+            Easy Integration
+          </h3>
+          <p>Embed the alert viewer anywhere — on your homepage, dashboards, or partner sites.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Live Demos Coming Soon</h2>
+      <p>We're preparing demo pages tailored to various districts using archived alerts. Want to be featured or request a setup for your organisation?</p>
+      <a href="#" class="button">Register Your Interest</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Region Alert Platform · For Civil Defence and Public Safety
+  </footer>
+
+</body>
+</html>
