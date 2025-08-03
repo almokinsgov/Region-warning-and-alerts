@@ -1019,17 +1019,21 @@ function formatAreaList(areaArray) {
   </header>
 
   <main>
-       <div style="text-align: right; max-width: 900px; margin: 1rem auto;">
+    <div style="text-align: right; max-width: 900px; margin: 1rem auto;">
       <label>
-        <input type="checkbox" id="toggle-māori" />
+        <input type="checkbox" id="toggle-translations" />
         <strong>Show English translations</strong>
       </label>
     </div>
+
     <section>
       <h2>What This Tool Offers</h2>
-      <p>This system turns national emergency feeds into clear, location-specific warnings. Built for councils and 
-      <span class="inline-translate" data-tooltip="communities">hapori</span>, it’s fast, embeddable, and 
-      geospatially aware — filtering alerts using real polygon intersections, not guesswork.</p>
+      <p>
+        This system turns national emergency feeds into clear, location-specific warnings. Built for councils and 
+        <span class="inline-translate" data-tooltip="communities">hapori <span class="māori-translation">(communities)</span></span>, 
+        it’s fast, embeddable, and geospatially aware — filtering alerts using real polygon intersections, not guesswork.
+      </p>
+
       <div class="feature-list">
         <div class="feature">
           <h3>
@@ -1038,9 +1042,12 @@ function formatAreaList(areaArray) {
             </svg>
             Real-time alerts
           </h3>
-          <p>Surfaces critical MetService and Civil Defence warnings as soon as they apply to your 
-          <span class="inline-translate" data-tooltip="region">rohe</span>.</p>
+          <p>
+            Surfaces critical MetService and Civil Defence warnings as soon as they apply to your 
+            <span class="inline-translate" data-tooltip="region">rohe <span class="māori-translation">(region)</span></span>.
+          </p>
         </div>
+
         <div class="feature">
           <h3>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1048,9 +1055,12 @@ function formatAreaList(areaArray) {
             </svg>
             Geospatial accuracy
           </h3>
-          <p>Uses true polygon detection — alerts only show if they intersect defined local 
-          <span class="inline-translate" data-tooltip="boundaries">rohe</span>.</p>
+          <p>
+            Uses true polygon detection — alerts only show if they intersect defined local 
+            <span class="inline-translate" data-tooltip="boundaries">rohe <span class="māori-translation">(boundaries)</span></span>.
+          </p>
         </div>
+
         <div class="feature">
           <h3>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1058,16 +1068,21 @@ function formatAreaList(areaArray) {
             </svg>
             Easy integration
           </h3>
-          <p>Drop into any homepage, dashboard, or partner site with minimal setup or 
-          <span class="inline-translate" data-tooltip="requirements">whakaritenga</span>.</p>
+          <p>
+            Drop into any homepage, dashboard, or partner site with minimal setup or 
+            <span class="inline-translate" data-tooltip="requirements">whakaritenga <span class="māori-translation">(requirements)</span></span>.
+          </p>
         </div>
       </div>
     </section>
 
     <section>
       <h2>Live Demos Coming Soon</h2>
-      <p>We’re preparing demo environments for specific councils and 
-      <span class="inline-translate" data-tooltip="regions">rohe</span> using past alert data. Want a demo set up for your area?</p>
+      <p>
+        We’re preparing demo environments for specific councils and 
+        <span class="inline-translate" data-tooltip="regions">rohe <span class="māori-translation">(regions)</span></span> using past alert data. 
+        Want a demo set up for your area?
+      </p>
       <a href="https://forms.gle/wP68BVjsRVyvMVZi9" class="button">Register your interest</a>
     </section>
 
@@ -1076,7 +1091,10 @@ function formatAreaList(areaArray) {
       <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.6;">
         <li><strong>🛰 Real-time alert detection:</strong> Pulls live CAP alerts from MetService and Civil Defence</li>
         <li><strong>🗺 Geospatial filtering:</strong> Checks intersection with defined or custom GeoJSON boundaries</li>
-        <li><strong>🧭 Custom map zones:</strong> Supports local overlays (e.g. <span class="inline-translate" data-tooltip="meeting house">marae</span>, suburbs, <span class="inline-translate" data-tooltip="tribal area">iwi</span> areas)</li>
+        <li><strong>🧭 Custom map zones:</strong> Supports local overlays (e.g. 
+          <span class="inline-translate" data-tooltip="meeting house">marae <span class="māori-translation">(meeting house)</span></span>, suburbs, 
+          <span class="inline-translate" data-tooltip="tribal area">iwi <span class="māori-translation">(tribal area)</span></span> areas)
+        </li>
         <li><strong>🧰 Modular config:</strong> Enable/disable feeds, filters, and display logic using easy flags</li>
         <li><strong>🧾 Clear, human-readable display:</strong> Converts raw XML data into scannable summaries with context</li>
         <li><strong>🔁 Serverless & lightweight:</strong> Deploy with plain HTML + JS, no backend needed</li>
@@ -1099,7 +1117,8 @@ function formatAreaList(areaArray) {
   </main>
 
   <footer>
-    &copy; 2025 Region Alert Platform, Amorangi Mathews · For Civil Defence and <span class="inline-translate" data-tooltip="community">whānau</span>
+    &copy; 2025 Region Alert Platform, Amorangi Mathews · For Civil Defence and 
+    <span class="inline-translate" data-tooltip="community">whānau <span class="māori-translation">(community)</span></span>
   </footer>
 
   <style>
@@ -1108,6 +1127,7 @@ function formatAreaList(areaArray) {
       border-bottom: 1px dotted #666;
       cursor: help;
     }
+
     .inline-translate::after {
       content: attr(data-tooltip);
       position: absolute;
@@ -1125,28 +1145,28 @@ function formatAreaList(areaArray) {
       transition: opacity 0.2s ease, transform 0.2s ease;
       z-index: 10;
     }
+
     .inline-translate:hover::after {
       opacity: 1;
       transform: translateY(0);
     }
-  </style>
 
-  <style>
-    .māori-term {
-      font-style: italic;
-      color: #444;
+    .māori-translation {
       display: none;
+      font-weight: normal;
+      font-style: normal;
+      color: #555;
     }
   </style>
 
   <script>
-    document.getElementById('toggle-māori').addEventListener('change', function () {
-      const terms = document.querySelectorAll('.māori-term');
-      terms.forEach(el => {
+    document.getElementById('toggle-translations').addEventListener('change', function () {
+      const translations = document.querySelectorAll('.māori-translation');
+      translations.forEach(el => {
         el.style.display = this.checked ? 'inline' : 'none';
       });
     });
   </script>
-
 </body>
+
 </html>
