@@ -1,50 +1,50 @@
-# 🌩️ Region Warning and Alerts
+🌩️ Region Warning and Alert System
+-----------------------------------
 
-A lightweight, geospatially aware public alert system that fetches and displays live weather and emergency alerts using official CAP feeds. Designed for use by local government, Civil Defence groups, and community organisations.
+**National Messaging with a Local Context**
 
----
+### 🚁 What It Is
 
-## ⚙️ Features
+A lightweight, embeddable web tool that displays official **MetService** and **Civil Defence** alerts — filtered by location so users only see warnings that apply to their **specific district, suburb, or marae**.
 
-- 🛰 **Real-Time Alert Detection**  
-  Fetches CAP alerts from trusted sources like MetService and Civil Defence feeds
+### 🛠️ Tool Overview
 
-- 🗺 **Geospatial Filtering**  
-  Displays only alerts that intersect with defined GeoJSON areas (e.g. districts, regions)
+The Region Warning and Alert System is a **public-facing component** for council and organisational websites. It uses national CAP feeds and overlays **local boundaries** to show only relevant alerts. It’s designed for clarity, minimal setup, and **real-world use in emergencies**.
 
-- 🧭 **Custom Zones**  
-  Supports manually drawn polygons using Leaflet export tools or external GeoJSON files
+### ⚙️ System Capabilities
 
-- 🧰 **Flexible Configuration**  
-  Easily enable/disable alert sources, define regions, and toggle display modes
+✅ **Clear, Easy-to-Read Alerts**Concise cards with strong visual cues and minimal noise
 
-- 🧾 **Readable Alert Display**  
-  Transforms structured CAP XML into user-friendly summaries with severity, expiry, and badges
+📦 **Standards-Based Messaging**Uses official Common Alerting Protocol (CAP) feeds from MetService and Civil Defence
 
-- 🔁 **Serverless Architecture**  
-  Works with just HTML + JavaScript — deployable to GitHub Pages or static sites
+🖘 **Geospatial Filtering**Shows alerts only when they intersect with defined boundaries (e.g., district, marae)
 
-- 🧪 **Archived Feed Testing**  
-  Swap in archived alerts for demos or disaster response simulations
+🧽 **Highly Configurable**Filter by agency, timeframe, message type (e.g., cancelled), or custom-drawn areas
 
-- 🖼 **Embeddable UI**  
-  Supports floating widgets or targeted container mode for integration flexibility
+🌐 **National Feeds, Local Impact**Localises national messaging to support grounded, place-based response
 
----
+👥 **Expanded Emergency Reach**Helps warnings reach people checking local websites rather than national ones
 
-## 🛠 Example Config
+🕒 **Activates Only When Needed**Interface remains hidden unless relevant alerts are active or upcoming
 
-```js
-const SHOW_CUSTOM_GEOJSON_ALERTS = true;
-const USE_PROXY_FOR_CUSTOM_GEOJSON = true;
+⚡ **Lightweight and Serverless**Built in HTML/JavaScript, deployable on any modern website or GitHub Pages
 
-const PROXY_URL = "https://yourproxy.example.com?url=";
+🔗 **Authoritative by Design**Summarises alerts clearly while linking back to full official sources
 
-const CustomGeoAreas = {
-  AreaOfInterest1: {
-    "type": "FeatureCollection",
-    "name": "Test Area",
-    "features": [ /* polygon */ ]
-  },
-  AreaOfInterest2: "https://example.com/area2.geojson"
-};
+🔄 **Supports Custom GeoJSON**Use your own polygons or external shapefiles for flexible boundary control
+
+💻 **CMS-Friendly and Embeddable**Works with modern content management systems and public sector platforms
+
+### 🔄 How It Works — Front-End Process
+
+1.  **GeoJSON Boundary Loaded**District or custom boundary files are loaded from URL or local config
+    
+2.  **Fetch Official Alert Feeds**CAP XML feeds are retrieved from MetService and Civil Defence (via proxy if needed)
+    
+3.  **Parse and Filter Alerts**Alerts are checked for geographic intersection with defined boundaries
+    
+4.  **Time and Status Filtering**The system checks if the alert is active, upcoming, expired, or cancelled — based on configuration
+    
+5.  **Display Interface**If alerts qualify, a floating widget or inline alert area becomes visible
+    
+6.  **User Reads and Responds**Alerts are formatted for fast scanning, clearly showing severity, agency, coverage area, and expiry time — with links to full official information
