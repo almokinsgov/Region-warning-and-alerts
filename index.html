@@ -119,7 +119,7 @@
     }
   </style>
 
-    <style>
+      <style>
     .alert-card {
       background: #fff0f0;
       border-left: 5px solid #ffa500;
@@ -142,7 +142,7 @@
       overflow-y: auto;
       z-index: 1000;
       display: none;
-      background: #fff;
+      background: #00000008;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       border-left: 4px solid #FFFFFF;
       border-radius: 8px;
@@ -158,8 +158,11 @@
       width: 48px;
       height: 48px;
       background: #ffcc00;
-      border-radius: 50%;
-      border: none;
+          background: linear-gradient(to right, #ffeb00, #ed0017);
+    border-radius: 50%;
+    border: black;
+    border-style: solid;
+      border-width: thin;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       font-size: 24px;
       display: none;
@@ -171,6 +174,7 @@
 
     #toggle-alerts-btn:hover {
       background: #ffaa00;
+      background: linear-gradient(to right, #ffeb00, #ed0017);
     }
     
     @media (max-width: 600px) {
@@ -185,6 +189,8 @@
         font-size: 13.8px;
     line-height: normal;
   }}
+
+/* first badge work*/
 
 .badge {
   display: inline-block;
@@ -237,6 +243,8 @@
     border-color: #fffc38;
 }
 
+    
+    
 .alert-yellow {
   border-left-color: #fbc02d;
   background: #fffde7;
@@ -258,9 +266,10 @@
   color: white;
 }
 
-.badge.alert-orange { background: #FF8918; }
-.badge.alert-red { background: #d32f2f; }
-.badge.alert-yellow { background: #fbc02d; color: black; }
+    .badge.alert-met {background: #172344;}   
+.badge.alert-orange { background: #FF8918; border: solid; border-width: thin; border-color: #000000; }
+.badge.alert-red { background: #d32f2f;  border: solid; border-width: thin;    border-color: #000000;}
+.badge.alert-yellow { background: #fbc02d; color: black;  border: solid; border-width: thin; border-color: #000000;}
 .badge.alert-cd {color: white; }
 .badge.alert-green { background: #388e3c; }
 
@@ -273,10 +282,103 @@
 }
 
     .expired-badge {
-  background: #9e9e9e;
+  background: #464951;
   color: white;
+       border: solid;
+    border-width: thin;
+    border-color: #000000;
+}
+    /*style for initial header and footer*/
+.alert-header {
+    background: #868687;
+    margin-bottom: 1rem;
+    color: #000000;
+  border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+  /*  font-size: 14.2px; 
+    line-height: 1.4;*/
+     
+}
+.alert-header hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin-top: 0.5rem;
+}
+    .alert-footer {
+  margin-top: 1rem;
+  /*font-size: 12.2px;*/
+ background: #868687;
+    margin-bottom: 1rem;
+    color: #000000;
+  border-radius: 10px;
+    padding: 10px 1px 10px 10px;
+  line-height: 1.4;
+}
+.alert-footer a {
+  color: #004d99;
+  text-decoration: underline;
+}
+.alert-footer hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin-top: 1rem;
+  
 }
   </style>
+
+<style>
+/*style for modern header and footer*/
+.alert-header {
+  background: linear-gradient(to right, #dc3545, #dc3545);
+  color: white;
+  border-style: solid;
+  border-width: medium;
+  border-color: #750000;
+  padding: 0.75rem 1rem;
+  border-radius: 8px 8px 0 0;
+  /*font-size: 1rem;
+  font-weight: 600;*/
+  line-height: 1.4;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.alert-header em {
+  font-style: normal;
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+.alert-footer {
+  background: #f4f6f8;
+  border-top: 1px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 8px 8px;
+  /*font-size: 0.85rem;
+  color: #555;*/
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.alert-footer a {
+  color: #dc3545;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.alert-footer a:hover {
+  text-decoration: underline;
+}
+</style>
+<style>
+/*cancelled badge for cd alerts*/
+.cancelled-badge {
+  background: #616161;
+  color: white;
+   border: solid;
+    border-width: thin;
+    border-color: #000000;
+}
+</style>
 
   <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 </head>
@@ -284,7 +386,7 @@
  
 <!-- Floating Alerts UI -->
 <div id="floating-alerts-container"></div>
-<button id="toggle-alerts-btn" title="Weather Alerts">🌧️️</button>
+<button id="toggle-alerts-btn" title="Weather Alerts">⛈️</button>
 
   <script>
 
@@ -292,32 +394,40 @@
 </script>
   
 <script>
-  const version = "1.3.1.6";
-  const functions = "Alert display, Container, Popup, onset window, non far north display, isstillactivecolour classes, simpilfy, cachefix, expiry tag, sorted, expiry hide, CD alerts added, sorting, badges, formatted alrert for cd, custom geo area with proxy and url support,  newgeojsonurl, temp urls for cd and met, area name extraction and apply to alert html,disable far north alerts, custom new geo json url. area definitions , html edit (msgType removed), multi area in alert html with and for multi location, custom sorted custom area";
-   const plannedadds = "cors config, js files and package for other systems, geonet cap feed adition, unplanned out power outages with custom alert and config, div mode, expired alert window with config";
+  //version and current functionality
+  const version = "1.3.1.7";
+  let lastUpdatedTime = new Date();
+  const functions = "Alert display, Container, Popup, onset window, non far north display, isstillactivecolour classes, simpilfy, cachefix, expiry tag, sorted, expiry hide, CD alerts added, sorting, badges, formatted alrert for cd, custom geo area with proxy and url support,  newgeojsonurl, temp urls for cd and met, area name extraction and apply to alert html,disable far north alerts, custom new geo json url. area definitions , html edit (msgType removed), multi area in alert html with and for multi location, custom sorted custom area,popup header and footer, restyled header and footer, restyle badges, hide cancelled cd alerts, changed icon to thunderstorm, auto change to warning econ when cd alert is present";
+  //Planned 
+  const plannedadds = "cors config, js files and package for other systems, geonet cap feed adition, unplanned out power outages with custom alert and config, div mode, expired alert window with config, unplanned outages from top energy,road closures from nzta,button location,";
+  //alerts config
   const SHOW_EXPIRED_ALERTS = true; // Change to true to show expired alerts
-  const SHOW_NON_FAR_NORTH_ALERTS = false;
-  const REQUIRE_ONSET_WITHIN_WINDOW = true;
-  const HOUR_WINDOW = 24;
-  const proxy = "https://corsproxy.io/?";
+  const SHOW_NON_FAR_NORTH_ALERTS = false; //show all alerts in the feed
+  const REQUIRE_ONSET_WITHIN_WINDOW = true; //filter results based on how long to start time
+  const HOUR_WINDOW = 24; //Amount of hours between the alert start time and date and the current time and date
+  const proxy = "https://corsproxy.io/?"; //cors proxy url
+  //Met service feed url with proxy add in, this should be a github url, we dont want to overload metservices infrastructure in an emergency
   const feedURL = proxy + encodeURIComponent("https://raw.githubusercontent.com/almokinsgov/NZSHAPE/refs/heads/main/alerts/archive/latest_2025-07-28T08-21-52-472Z.xml");
   //Civil defence live feed tester and visialsier - https://codepen.io/Amorangi-Mathews/full/QwjGPyv
   //Met service feed visualiser and tester https://codepen.io/Amorangi-Mathews/full/WbQGRvr
 // Civil defence alerts 
   const ENABLE_CD_ALERTS = true; // Set to false to disable Civil Defence alerts
-const CD_ALERT_FEED_URL = "https://raw.githubusercontent.com/almokinsgov/NZSHAPE/refs/heads/main/alerts/CivilDefenceTest.xml";
+const CD_ALERT_FEED_URL = "https://raw.githubusercontent.com/almokinsgov/NZSHAPE/refs/heads/main/alerts/CivilDefenceTest.xml"; //civil defence alert feed (atom)
+  const SHOW_CANCELLED_CD_ALERTS = false; // Change to true to display CD alerts with msgType "Cancel"
+
  //custom geojson area alerts 
-const SHOW_CUSTOM_GEOJSON_ALERTS = true;
-const USE_PROXY_FOR_CUSTOM_GEOJSON = true; 
-  //Hide Far north geo jason alerts 
-const DISABLE_FAR_NORTH_ALERTS = false;  
-//const withinTime = true;
+const SHOW_CUSTOM_GEOJSON_ALERTS = true; //Show alerts for custom areas that are defined
+const USE_PROXY_FOR_CUSTOM_GEOJSON = true;  //use proxy for custom grojson urls under the custom geo areas
+
+const DISABLE_FAR_NORTH_ALERTS = false;    //Hide Far north geo jason alerts 
+//const withinTime = true; legacy content, was the alternative to isitactivestill
   let farNorthGeoJSON = null;
 //Far north geojson config
   const GEOJSON_KEY = "farNorthGeoJSON";
   const GEOJSON_TIMESTAMP_KEY = "farNorthGeoJSON_timestamp";
-  const GEOJSON_EXPIRY_HOURS = 24;
+  const GEOJSON_EXPIRY_HOURS = 24; //Time period for Far North geojson, script will check every this hours if the stored geojson is the same as the current one
 
+  //check to see if the stored Far North geojson is still ative, uses geo expiry hours
   function isGeoJSONExpired() {
     const saved = localStorage.getItem(GEOJSON_TIMESTAMP_KEY);
     if (!saved) return true;
@@ -381,7 +491,7 @@ const newGeoJSON = "https://raw.githubusercontent.com/almokinsgov/NZSHAPE/refs/h
     }
   } catch (e) {
     console.warn("Failed to load newGeoJSON:", e);
-  }
+  } 
 
   if (finalGeoJSON) {
     localStorage.setItem(GEOJSON_KEY, JSON.stringify(finalGeoJSON));
@@ -421,6 +531,7 @@ const AREA_DISPLAY_ORDER = [
   //predifinitions and clering 
   let customGeoAreas = [];
 let combinedAlertList = []; // Holds all alerts for sorting and display
+  
   
   //check metservice feed, create html, sort
 async function fetchAlerts() {
@@ -540,33 +651,34 @@ geoCoords.forEach(coords => {
   return (iA === -1 ? 999 : iA) - (iB === -1 ? 999 : iB); // fallback to end if not found
 });
 
-      
+//banner conect for the met service cap feed related alerts      
       const alertHTML = `
 <div class="alert-card ${qualifies ? 'far-north' : ''} ${alertStatus} ${colourClass}">
   <b>${headline} issued for ${areaDesc}</b><br>
   MetService has issued a weather alert that includes parts of ${formatAreaList(matchedAreaNames)}
   ${onset ? ` from ${formatReadableTime(onset)} ` : ''}
-  ${expires ? `to ${formatReadableTime(expires)}</i>.<br>` : ''}
+  ${expires ? `to ${formatReadableTime(expires)}</i>.<br>` : ''}   
   ${web ? `<a href="${web}" target="_blank">Visit MetService website for more information.</a><br>` : ''}
+  <span class="badge alert-met">MetService</span>
   ${colourCode ? `<span class="badge ${colourClass}">${colourCode}</span>` : ''}
-  ${alertStatus === 'upcoming' ? `<span class="badge upcoming-badge">Upcoming</span> ` : ''}
+  ${alertStatus === 'upcoming' ? `<span class="badge upcoming-badge">Upcoming</span> ` : ''} 
   ${alertStatus === 'active-now' ? `<span class="badge active-badge">Active Now</span><br>` : ''}
   ${alertStatus === 'expired' ? `<span class="badge expired-badge">Expired</span>` : ''}
 </div>`;
 
      if (qualifies) {
-combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'met' }); // in fetchAlerts
+combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'met', areas: matchedAreaNames }); // in fetchAlerts 
 
-} else if (
+} else if (  
   SHOW_NON_FAR_NORTH_ALERTS &&
   (alertStatus === "active-now" || alertStatus === "upcoming" || (alertStatus === "expired" && SHOW_EXPIRED_ALERTS))
 ) {
-combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'met' }); // in fetchAlerts
+combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'met', areas: matchedAreaNames }); // in fetchAlerts
 
 }
     }
 
-    // 🟡 STEP 2: Sort alerts: active-now > upcoming > expired
+    // STEP 2: Sort alerts: active-now > upcoming > expired
     const statusOrder = { "active-now": 1, "upcoming": 2, "expired": 3 };
     alertList.sort((a, b) => (statusOrder[a.status] || 99) - (statusOrder[b.status] || 99));
 
@@ -580,6 +692,7 @@ combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'met' });
       floatingEl.innerHTML = "";
       toggleBtn.style.display = "none";
     }
+    lastUpdatedTime = new Date().toISOString();
 renderCombinedAlerts();
   } catch (err) {
     console.error(err);
@@ -693,7 +806,12 @@ geoCoords.forEach(coords => {
   }
 });
 
-      const qualifies = intersects && isAllowedStatus;
+      const isCancelled = msgType.toLowerCase() === "cancel";
+const qualifies =
+  intersects &&
+  isAllowedStatus &&
+  (!isCancelled || (isCancelled && SHOW_CANCELLED_CD_ALERTS));
+
 
       const formatNZTime = iso => {
         if (!iso) return '';
@@ -723,21 +841,21 @@ geoCoords.forEach(coords => {
   to ${formatNZTime(expires)}.<br>
   <b>Urgency:</b> ${urgency} <b>Severity:</b> ${severity}<br>
   <span class="badge alert-cd">Civil Defence</span>
-  ${alertStatus === 'upcoming' ? `<span class="badge upcoming-badge">Upcoming</span><br>` : ''}
-  ${alertStatus === 'active-now' ? `<span class="badge active-badge">Active Now</span><br>` : ''}
-  ${alertStatus === 'expired' ? `<span class="badge expired-badge">Expired</span><br>` : ''}
-
-  <a href="https://www.civildefence.govt.nz/" target="_blank">Visit civildefence.govt.nz for more information</a>
+  ${alertStatus === 'upcoming' ? `<span class="badge upcoming-badge">Upcoming</span>` : ''}
+  ${alertStatus === 'active-now' ? `<span class="badge active-badge">Active Now</span>` : ''}
+  ${alertStatus === 'expired' ? `<span class="badge expired-badge">Expired</span>` : ''}
+${isCancelled ? `<span class="badge cancelled-badge">Cancelled</span><br>` : ''}
+  <br><a href="https://www.civildefence.govt.nz/" target="_blank">Visit civildefence.govt.nz for more information</a>
 </div>`;
 
       if (qualifies) {
-combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'cd' }); // in fetchCDAlerts
+combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'cd', areas: matchedAreaNames }); // in fetchCDAlerts
 
       } else if (
         SHOW_NON_FAR_NORTH_ALERTS &&
         (alertStatus === "active-now" || alertStatus === "upcoming" || (alertStatus === "expired" && SHOW_EXPIRED_ALERTS))
       ) {
-combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'cd' }); // in fetchCDAlerts
+combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'cd', areas: matchedAreaNames }); // in fetchCDAlerts
 
       }
     }
@@ -753,6 +871,7 @@ combinedAlertList.push({ html: alertHTML, status: alertStatus, source: 'cd' }); 
       floatingEl.innerHTML += cdAlertList.map(a => a.html).join("\n");
       toggleBtn.style.display = "flex";
     }
+    lastUpdatedTime = new Date().toISOString();
 renderCombinedAlerts();
   } catch (err) {
     console.error("CD Alert fetch failed", err);
@@ -791,13 +910,12 @@ Promise.all([loadFarNorthGeoJSON(), loadCustomGeoJSONAreas()])
 
   return areas;
 } 
-   
+  // Order: CD alerts first, then MetService — within each group, sort by status   
 function renderCombinedAlerts() {
-  // Order: CD alerts first, then MetService — within each group, sort by status
   const statusOrder = { "active-now": 1, "upcoming": 2, "expired": 3 };
 
   combinedAlertList.sort((a, b) => {
-    if (a.source !== b.source) return a.source === 'cd' ? -1 : 1; // CD first
+    if (a.source !== b.source) return a.source === 'cd' ? -1 : 1;
     return (statusOrder[a.status] || 99) - (statusOrder[b.status] || 99);
   });
 
@@ -805,13 +923,36 @@ function renderCombinedAlerts() {
   const toggleBtn = document.getElementById("toggle-alerts-btn");
 
   if (combinedAlertList.length) {
-    floatingEl.innerHTML = combinedAlertList.map(a => a.html).join("\n");
+    const allAreaMentions = combinedAlertList
+      .flatMap(a => a.areas || [])
+      .filter((v, i, a) => a.indexOf(v) === i);
+    const areaLabel = formatAreaList(allAreaMentions);
+const hasCDAlert = combinedAlertList.some(a => a.source === 'cd');
+toggleBtn.textContent = hasCDAlert ? "⚠️" : "🌧️";
+    const introHTML = `
+      <div class="alert-header">
+        <strong>Local warnings and alerts</strong><br>
+        Currently showing local warnings and alerts for ${areaLabel}.
+       </div>`;
+
+    const footerHTML = `
+      <hr>
+      <div class="alert-footer">
+        <small>
+          Last updated: ${formatReadableTime(lastUpdatedTime)}<br>
+          <a href="https://almokinsgov.github.io/Region-warning-and-alerts/" target="_blank">Region Warnings and Alert System</a>, Current version ${version}
+        </small>
+      </div>`;
+
+    floatingEl.innerHTML = introHTML + combinedAlertList.map(a => a.html).join("\n") + footerHTML;
     toggleBtn.style.display = "flex";
   } else {
     floatingEl.innerHTML = "";
     toggleBtn.style.display = "none";
   }
 }
+
+
 
   function isStillActive(onsetText, expiresText) {
   const now = new Date();
@@ -859,6 +1000,7 @@ function formatAreaList(areaArray) {
     el.style.display = (el.style.display === "none" || !el.style.display) ? "block" : "none";
   });
 </script>
+  
   
 </head>
 <body>
