@@ -1006,89 +1006,84 @@ function formatAreaList(areaArray) {
 <body>
 
   <header>
-    <svg class="hero-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M13 2L3 14H12L11 22L21 10H13L13 2Z" fill="white"/>
-    </svg>
-    <h1>Region warning and alerts (beta)</h1>
-    <p>Real-time updates, set and forget, compatible with most websites</p>
-  </header>
+  <svg class="hero-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13 2L3 14H12L11 22L21 10H13L13 2Z" fill="white"/>
+  </svg>
+  <h1>Region Warnings and Alerts (Beta)</h1>
+  <p>Real-time, locally filtered warnings from official sources — built to integrate and run on any modern site.</p>
+</header>
 
-  <main>
-    <section>
-      <h2>What this tool offers</h2>
-      <p>Visualises emergency alerts, warnings, and region-specific information using geospatial data and modern web technologies. It’s portable, customisable, and built with real-time decision-making in mind.</p>
-      <div class="feature-list">
-        <div class="feature">
-          <h3>
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor" d="M1 21h22L12 2 1 21zm13-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
-            </svg>
-            Real-time alerts
-          </h3>
-          <p>Instantly surface critical weather and civil defence warnings for specific regions.</p>
-        </div>
-        <div class="feature">
-          <h3>
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-            </svg>
-            Geospatial mapping
-          </h3>
-          <p>Alerts are filtered using live polygon checks not just names or guesses.</p>
-        </div>
-        <div class="feature">
-          <h3>
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor" d="M7 3v6h10V3h2v6h2v2h-2v4c0 2.21-1.79 4-4 4h-1v4h-2v-4h-1c-2.21 0-4-1.79-4-4v-4H3v-2h2V3h2z"/>
-            </svg>
-            Easy integration
-          </h3>
-          <p>Embed the alert viewer anywhere on your homepage, dashboards, or partner sites.</p>
-        </div>
+<main>
+  <section>
+    <h2>What This Tool Offers</h2>
+    <p>This system turns national emergency feeds into clear, location-specific warnings. Built for councils and communities, it’s fast, embeddable, and geospatially aware — filtering alerts using real polygon intersections, not guesswork.</p>
+    <div class="feature-list">
+      <div class="feature">
+        <h3>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M1 21h22L12 2 1 21zm13-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+          </svg>
+          Real-time alerts
+        </h3>
+        <p>Surfaces critical MetService and Civil Defence warnings as soon as they apply to your rohe.</p>
       </div>
-    </section>
-
-    <section>
-      <h2>Live demos coming soon</h2>
-      <p>We're preparing demo pages tailored to various districts using archived alerts. Want to be featured or request a setup for your organisation?</p>
-      <a href="https://forms.gle/wP68BVjsRVyvMVZi9" class="button">Register your interest</a>
-    </section>
-<section style="max-width: 900px; margin: 3rem auto; padding: 2rem; background: #ffffff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-family: 'Inter', sans-serif;">
-  <h2 style="color: #dc3545; font-size: 2rem; margin-bottom: 1rem; text-align: center;">Key features</h2>
-
-  <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.6;">
-    <li><strong>🛰 Real-time alert detection:</strong> Fetches official CAP alerts from trusted sources like MetService and Civil Defence</li>
-    <li><strong>🗺 Geospatial filtering:</strong> Checks if alerts intersect with pre-defined or custom GeoJSON areas</li>
-    <li><strong>🧭 Custom map zones:</strong> Define drawn polygons using Leaflet-based tools; supports local overlays (e.g. iwi areas)</li>
-    <li><strong>🧰 Modular config:</strong> Enable or disable sources, geo-filters, and display rules with a flexible config</li>
-    <li><strong>🧾 Human-friendly alert display:</strong> Translates raw alert data into clear summaries with timing, severity, and source info</li>
-    <li><strong>🔁 Serverless & lightweight:</strong> Deployable with just HTML + JavaScript, with no backend required</li>
-    <li><strong>🧪 Feed Testing:</strong> Swap in archived alert feeds for demonstration or review purposes</li>
-    <li><strong>🖼 Embeddable UI options:</strong> Floating widget with adaptable styling</li>
-    <li><strong>🌐 Multi-organisation ready:</strong> Reconfigurable for use by other councils, CDEM groups, or partners</li>
-  </ul>
-</section>
-
-<section>
-      <h2>See it in action</h2>
-      <p>Press the warning icon in the bottom right corner to see a preview of the tool.</p>
-    </section>
- 
-
+      <div class="feature">
+        <h3>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+          </svg>
+          Geospatial accuracy
+        </h3>
+        <p>Uses true polygon detection — alerts only show if they intersect defined local boundaries.</p>
+      </div>
+      <div class="feature">
+        <h3>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M7 3v6h10V3h2v6h2v2h-2v4c0 2.21-1.79 4-4 4h-1v4h-2v-4h-1c-2.21 0-4-1.79-4-4v-4H3v-2h2V3h2z"/>
+          </svg>
+          Easy integration
+        </h3>
+        <p>Drop into any homepage, dashboard, or partner site with minimal setup or dependencies.</p>
+      </div>
+    </div>
+  </section>
 
   <section>
-      <h2>Github</h2>
-      <p>Releases and documentation will be uploaded to the RWA Github repository.</p>
-      <a href="https://github.com/almokinsgov/Region-warning-and-alerts" class="button">Check out the RWA repository</a>
-    </section>
-  </main>
+    <h2>Live Demos Coming Soon</h2>
+    <p>We’re preparing demo environments for specific councils and districts using past alert data. Want a demo set up for your area?</p>
+    <a href="https://forms.gle/wP68BVjsRVyvMVZi9" class="button">Register your interest</a>
+  </section>
 
+  <section style="max-width: 900px; margin: 3rem auto; padding: 2rem; background: #ffffff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); font-family: 'Inter', sans-serif;">
+    <h2 style="color: #dc3545; font-size: 2rem; margin-bottom: 1rem; text-align: center;">Key Features</h2>
+    <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.6;">
+      <li><strong>🛰 Real-time alert detection:</strong> Pulls live CAP alerts from MetService and Civil Defence</li>
+      <li><strong>🗺 Geospatial filtering:</strong> Checks intersection with defined or custom GeoJSON boundaries</li>
+      <li><strong>🧭 Custom map zones:</strong> Supports local overlays (e.g. marae, suburbs, iwi areas) via Leaflet-compatible tools</li>
+      <li><strong>🧰 Modular config:</strong> Enable/disable feeds, filters, and display logic using easy flags</li>
+      <li><strong>🧾 Clear, human-readable display:</strong> Converts raw XML data into scannable summaries with context</li>
+      <li><strong>🔁 Serverless & lightweight:</strong> Deploy with plain HTML + JS, no backend needed</li>
+      <li><strong>🧪 Archived feed support:</strong> Plug in old alerts for training, demos, or scenario testing</li>
+      <li><strong>🖼 Embeddable UI:</strong> Responsive floating panel or inline component that adapts to your layout</li>
+      <li><strong>🌐 Multi-organisation ready:</strong> Adaptable for use by other councils, agencies, or partner websites</li>
+    </ul>
+  </section>
 
-  
+  <section>
+    <h2>See It In Action</h2>
+    <p>Tap the ⚠️ icon in the lower right corner to activate the alerts panel.</p>
+  </section>
 
-  <footer>
-    &copy; 2025 Region Alert Platform - Amorangi Mathews · For Civil Defence and Public Safety 
-  </footer>
+  <section>
+    <h2>GitHub</h2>
+    <p>Source code, releases, and documentation are available in the official repository.</p>
+    <a href="https://github.com/almokinsgov/Region-warning-and-alerts" class="button">Visit the GitHub Repo</a>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Region Alert Platform — Amorangi Mathews · For Civil Defence and Public Safety
+</footer>
 
 </body>
 </html>
