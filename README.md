@@ -46,20 +46,25 @@ The Region Warning and Alert System is a **public-facing component** for council
 6.  **User Reads and Responds** Alerts are formatted for fast scanning, clearly showing severity, agency, coverage area, and expiry time, with links to full official information
 
 ### Getting started
-Add the code below to your website, please note you will need to change the config settings. 
+Add the code below to your websitea head or inline HTML, please note you will need to change the config settings. 
 Config page coming soon.
 ```
+<head>
 <!-- Region Warning and Alerts created by Amorangi Mathews -->
-<!-- Version 1.3.2.0 -->
-<!-- Stylesheet -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/almokinsgov/Region-warning-and-alerts@main/V1320/RWASJS.css" />
-<!-- Turf, used for geospatial processing -->
+<!-- Version 1.4.0.0 -->
+<!--Auth key-->
+<script>
+window.RWAS_AUTH_KEY = "authkey"; // Replace with your actual key
+</script>
+<!--RWAS authentication system -->
+<script src="https://cdn.jsdelivr.net/gh/almokinsgov/Region-warning-and-alerts@main/V1400/authv1401.js" defer></script>
+<!-- stylesheet and turf which is used for intersections and geospatial processing  -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/almokinsgov/Region-warning-and-alerts@main/V1400/RWASJS.css" />
 <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-<!-- Config and RWAS core-->
-<script src="https://cdn.jsdelivr.net/gh/almokinsgov/Region-warning-and-alerts@main/V1320/RWASJS.js" defer></script>
 <!-- Floating Alerts UI, needed to trigger-->
 <div id="floating-alerts-container"></div>
 <button id="toggle-alerts-btn" title="Weather Alerts">⛈️</button>
+</head>
 ```
 ### Check out the demo
 A demo can be found on the landing page - [RWAS homepage](https://almokinsgov.github.io/Region-warning-and-alerts/)
