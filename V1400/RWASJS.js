@@ -1,9 +1,4 @@
  function initRWAS() {
-  // Your entire current RWAS code goes here
-  // Can still use global consts and variables inside
-  // DOM manipulation, alert rendering, etc.
-
- 
  // Region warning and alerts - created by Amorangi Mathews 
  //version and current functionality 
   //1.2.1.7 to 1.3.2.0 single html file to JS,CSS and HTML, hosted in Github served with a CDN  
