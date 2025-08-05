@@ -57,9 +57,9 @@ Config page coming soon.
 window.RWAS_AUTH_KEY = "authkey"; // Replace with your actual key
 </script>
 <!--RWAS authentication system -->
-<script src="https://cdn.jsdelivr.net/gh/almokinsgov/Region-warning-and-alerts@main/V1400/authv1401.js" defer></script>
+<script src="/V1400/authv1401.js" defer></script>
 <!-- stylesheet and turf which is used for intersections and geospatial processing  -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/almokinsgov/Region-warning-and-alerts@main/V1400/RWASJS.css" />
+<link rel="stylesheet" href="/V1400/RWASJS.css" />
 <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 <!-- Floating Alerts UI, needed to trigger-->
 <div id="floating-alerts-container"></div>
