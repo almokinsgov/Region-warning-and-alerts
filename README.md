@@ -50,4 +50,8 @@ Config page coming soon.
 <div id="floating-alerts-container"></div>
 <button id="toggle-alerts-btn" title="Weather Alerts">⛈️</button>
 ```
+### Check out the demo
+A demo can be found on the landing page - [RWAS homepage]([https://www.google.com](https://almokinsgov.github.io/Region-warning-and-alerts/))
 
+### Register your interest
+Want to add local warnings and alerts to your website? Register your interest here. [Google Forms]([[https://www.google.com](https://almokinsgov.github.io/Region-warning-and-alerts/](https://forms.gle/wP68BVjsRVyvMVZi9)))
