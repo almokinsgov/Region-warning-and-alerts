@@ -49,22 +49,14 @@ The Region Warning and Alert System is a **public-facing component** for council
 Add the code below to your websitea head or inline HTML, please note you will need to change the config settings. 
 Config page coming soon.
 ```
-<head>
-<!-- Region Warning and Alerts created by Amorangi Mathews -->
-<!-- Version 1.4.0.0 -->
-<!--Auth key-->
-<script>
-window.RWAS_AUTH_KEY = "authkey"; // Replace with your actual key
-</script>
-<!--RWAS authentication system -->
+<script>window.RWAS_AUTH_KEY = "authkey";</script>
 <script src="/V1400/authv1401.js" defer></script>
-<!-- stylesheet and turf which is used for intersections and geospatial processing  -->
 <link rel="stylesheet" href="/V1400/RWASJS.css" />
 <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
-<!-- Floating Alerts UI, needed to trigger-->
+<!-- Floating Alerts UI, needed to trigger system-->
 <div id="floating-alerts-container"></div>
 <button id="toggle-alerts-btn" title="Weather Alerts">⛈️</button>
-</head>
+
 ```
 ### Check out the demo
 A demo can be found on the landing page - [RWAS homepage](https://almokinsgov.github.io/Region-warning-and-alerts/)
